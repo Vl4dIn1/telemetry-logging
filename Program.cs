@@ -21,7 +21,7 @@ try
         .WriteTo.Elasticsearch([new Uri("http://localhost:9200")], opts =>
         {
             opts.DataStream = new DataStreamName("logs", "telemetry-logging", "demo");
-            opts.BootstrapMethod = BootstrapMethod.None;
+            opts.BootstrapMethod = BootstrapMethod.Failure;
             opts.ConfigureChannel = channelOpts =>
             {
                 channelOpts.BufferOptions = new BufferOptions
